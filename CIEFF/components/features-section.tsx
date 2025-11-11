@@ -12,17 +12,6 @@ export default function Organigrama() {
         { img: "/luisa_echeverria.jpg", nombre: "Luisa Echeverría King", cargo: "Dirección de Diplomacia y Cooperación Científica Internacional" },
         { img: "/ronald_alvarez.jpg", nombre: "Ronald Álvarez Martínez", cargo: "Dirección de Proyectos" },
         { img: "/tatyana_bolivar.jpg", nombre: "Tatyana Bolívar Vasilef", cargo: "Dirección de Extensión" },
-        { img: "/gloria_naranjo.jpg", nombre: "Gloria Naranjo", cargo: "Dirección de MacondoLab" },
-      ],
-    },
-    {
-      titulo: "Coordinaciones Académicas y Técnicas",
-      personas: [
-        { img: "/marbel_gravini.jpg", nombre: "Marbel Gravini Donado", cargo: "Jefe Oficina Formación para la Investigación" },
-        { img: "/manuel_riaño.jpg", nombre: "Manuel Riaño", cargo: "Jefe de Investigación - Cúcuta" },
-        { img: "/dhayana_fernandez.jpg", nombre: "Dhayana Fernández Matos", cargo: "Jefe de Publicaciones" },
-        { img: "/ivon_romero.jpg", nombre: "Ivon Romero Pérez", cargo: "Jefe Oficina Metri-k" },
-        { img: "/jennifer_davila.jpg", nombre: "Jennifer Dávila", cargo: "Dirección de Extensión - Cúcuta" },
       ],
     },
     {
@@ -33,6 +22,17 @@ export default function Organigrama() {
         { img: "/reynaldo_villareal.jpg", nombre: "Reynaldo Villarreal González", cargo: "Director del centro AUDACIA" },
         { img: "/yani_aranguren.jpg", nombre: "Yani Aranguren", cargo: "Directora Cambio Climático y Biodiversidad - Adaptia" },
         { img: "/neida_albornoz.jpg", nombre: "Neida Albornoz", cargo: "Directora del centro de estudios fronterizos CIEF Cúcuta" },
+        { img: "/gloria_naranjo.jpg", nombre: "Gloria Naranjo", cargo: "Dirección de MacondoLab" },
+      ],
+    },
+     {
+      titulo: "Coordinaciones Académicas y Técnicas",
+      personas: [
+        { img: "/marbel_gravini.jpg", nombre: "Marbel Gravini Donado", cargo: "Jefe Oficina Formación para la Investigación" },
+        { img: "/manuel_riaño.jpg", nombre: "Manuel Riaño", cargo: "Jefe de Investigación - Cúcuta" },
+        { img: "/dhayana_fernandez.jpg", nombre: "Dhayana Fernández Matos", cargo: "Jefe de Publicaciones" },
+        { img: "/ivon_romero.jpg", nombre: "Ivon Romero Pérez", cargo: "Jefe Oficina Metri-k" },
+        { img: "/jennifer_davila.jpg", nombre: "Jennifer Dávila", cargo: "Dirección de Extensión - Cúcuta" },
       ],
     },
   ];

@@ -69,14 +69,7 @@ export default function OrganigramaCucuta() {
           ))}
         </motion.div>
 
-        {/* 🔹 Línea separadora */}
-        <div className="w-full flex justify-center mb-12">
-          <div className="w-2/3 h-0.5 bg-[#68AB6A]/60 relative">
-            <div className="absolute left-1/4 w-0.5 h-6 bg-[#68AB6A]/60"></div>
-            <div className="absolute left-1/2 w-0.5 h-6 bg-[#68AB6A]/60"></div>
-            <div className="absolute left-3/4 w-0.5 h-6 bg-[#68AB6A]/60"></div>
-          </div>
-        </div>
+       
 
         {/* 🔹 Nivel 3 */}
         <motion.div
