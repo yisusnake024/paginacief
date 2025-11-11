@@ -76,14 +76,7 @@ export default function OrganigramaCIEF() {
           </div>
         </motion.div>
 
-        {/* 🔹 Línea divisoria */}
-        <div className="w-full flex justify-center mb-12">
-          <div className="w-3/4 h-0.5 bg-white/60 relative">
-            <div className="absolute left-1/4 w-0.5 h-6 bg-white/60"></div>
-            <div className="absolute left-2/4 w-0.5 h-6 bg-white/60"></div>
-            <div className="absolute left-3/4 w-0.5 h-6 bg-white/60"></div>
-          </div>
-        </div>
+      
 
         {/* 🔹 Nivel 3: Grupos de investigación */}
         <motion.div
