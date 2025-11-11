@@ -120,7 +120,7 @@ export default function ContactoPage() {
                 <button
                   type="button"
                   onClick={() => handleSend("outlook")}
-                  className="bg-[#FFB000] text-black font-semibold px-8 py-3 rounded-full hover:bg-[#005ea2] transition w-full md:w-auto"
+                  className="bg-[#FFB000] text-black font-semibold px-8 py-3 rounded-full hover:bg-[#ff9900] transition w-full md:w-auto"
                 >
                   Enviar con Outlook
                 </button>
