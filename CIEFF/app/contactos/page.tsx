@@ -3,7 +3,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
@@ -13,34 +12,30 @@ export default function ContactoPage() {
     mensaje: "",
   });
 
-  const [status, setStatus] = useState<string | null>(null);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("enviando");
+  // 🔹 Función genérica para abrir Gmail u Outlook
+  const handleSend = (service: "gmail" | "outlook") => {
+    const emailDestino = "cief@unisimon.edu.co"; // ✅ cambia por tu correo real
+    const subject = encodeURIComponent(`Mensaje de ${formData.nombre} ${formData.apellido}`);
+    const body = encodeURIComponent(
+      `Nombre: ${formData.nombre}\nApellido: ${formData.apellido}\nTeléfono: ${formData.telefono}\n\nMensaje:\n${formData.mensaje}`
+    );
 
-    try {
-      await emailjs.send(
-        "TU_SERVICE_ID", // 🔹 Reemplaza con tu Service ID
-        "TU_TEMPLATE_ID", // 🔹 Reemplaza con tu Template ID
-        {
-          nombre: formData.nombre,
-          apellido: formData.apellido,
-          telefono: formData.telefono,
-          mensaje: formData.mensaje,
-        },
-        "TU_PUBLIC_KEY" // 🔹 Reemplaza con tu Public Key de EmailJS
-      );
-      setStatus("exito");
-      setFormData({ nombre: "", apellido: "", telefono: "", mensaje: "" });
-    } catch (error) {
-      console.error(error);
-      setStatus("error");
+    let url = "";
+
+    if (service === "gmail") {
+      // 🔹 Gmail
+      url = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailDestino}&su=${subject}&body=${body}`;
+    } else if (service === "outlook") {
+      // 🔹 Outlook Web
+      url = `https://outlook.live.com/owa/?path=/mail/action/compose&to=${emailDestino}&subject=${subject}&body=${body}`;
     }
+
+    // 🔹 Abre en una nueva pestaña
+    window.open(url, "_blank");
   };
 
   return (
@@ -55,11 +50,11 @@ export default function ContactoPage() {
 
           <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-2xl">
             <p className="text-gray-700 text-center mb-8 text-lg">
-              Déjanos tu mensaje y nos pondremos en contacto contigo lo antes posible.
+              Completa el formulario y elige cómo deseas enviar tu mensaje:
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Nombre */}
+            {/* 🔹 Formulario */}
+            <form className="space-y-6">
               <div>
                 <label className="block text-gray-800 font-semibold mb-2">Nombre</label>
                 <input
@@ -73,7 +68,6 @@ export default function ContactoPage() {
                 />
               </div>
 
-              {/* Apellido */}
               <div>
                 <label className="block text-gray-800 font-semibold mb-2">Apellido</label>
                 <input
@@ -87,7 +81,6 @@ export default function ContactoPage() {
                 />
               </div>
 
-              {/* Teléfono */}
               <div>
                 <label className="block text-gray-800 font-semibold mb-2">Teléfono</label>
                 <input
@@ -101,7 +94,6 @@ export default function ContactoPage() {
                 />
               </div>
 
-              {/* Mensaje */}
               <div>
                 <label className="block text-gray-800 font-semibold mb-2">Mensaje</label>
                 <textarea
@@ -115,36 +107,33 @@ export default function ContactoPage() {
                 ></textarea>
               </div>
 
-              {/* Botón */}
-              <div className="text-center">
+              {/* 🔹 Botones de envío */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                 <button
-                  type="submit"
-                  disabled={status === "enviando"}
-                  className="bg-[#FFB000] text-black font-semibold px-8 py-3 rounded-full hover:bg-[#ff9900] transition disabled:opacity-70"
+                  type="button"
+                  onClick={() => handleSend("gmail")}
+                  className="bg-[#FFB000] text-black font-semibold px-8 py-3 rounded-full hover:bg-[#ff9900] transition w-full md:w-auto"
                 >
-                  {status === "enviando" ? "Enviando..." : "Enviar mensaje"}
+                  Enviar con Gmail
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleSend("outlook")}
+                  className="bg-[#FFB000] text-black font-semibold px-8 py-3 rounded-full hover:bg-[#005ea2] transition w-full md:w-auto"
+                >
+                  Enviar con Outlook
                 </button>
               </div>
             </form>
-
-            {/* Mensaje de estado */}
-            {status === "exito" && (
-              <p className="text-green-700 text-center font-semibold mt-6">
-                ✅ ¡Mensaje enviado con éxito!
-              </p>
-            )}
-            {status === "error" && (
-              <p className="text-red-600 text-center font-semibold mt-6">
-                ❌ Ocurrió un error al enviar el mensaje. Intenta nuevamente.
-              </p>
-            )}
           </div>
         </div>
       </main>
 
-       <footer className="bg-[#FFB000] text-black py-10 mt-10">
-              <Footer />
-            </footer>
+      <footer className="bg-[#FFB000] text-black py-10 mt-10">
+        <Footer />
+      </footer>
     </div>
   );
 }
+
