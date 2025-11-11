@@ -301,7 +301,7 @@ export default function HomePage() {
                 {
                   title: "CÁPSULAS DE CONOCIMIENTO (Video Hub)",
                   desc: "Divulgación pública de la ciencia en formato audiovisual.",
-                  link: "/publirecu/DivulgacionPage",
+                  link: "/publirecu",
                   btn: "Ver el Video Más Reciente",
                 },
               ].map((card, i) => (
