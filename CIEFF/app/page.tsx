@@ -347,7 +347,7 @@ export default function HomePage() {
           <li>📅 [28 Sep 2025] - Presentación del Policy Brief sobre Migración</li>
         </ul>
         <Link
-          href="/noticias"
+          href="/notieventos"
           className="block mt-6 text-[#FFB000] hover:underline text-sm font-medium"
         >
           Ver Todas las Noticias →
@@ -366,7 +366,7 @@ export default function HomePage() {
           <li>📅 [18 Nov 2025] - Presentación de Policy Brief Y</li>
         </ul>
         <Link
-          href="/agenda"
+          href="/notieventos"
           className="block mt-6 text-[#FFB000] hover:underline text-sm font-medium"
         >
           Ver Agenda Completa →

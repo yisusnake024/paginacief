@@ -2,5 +2,7 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/mantenimiento/page": "app/mantenimiento/page.js",
-  "/quienes_somos/page": "app/quienes_somos/page.js"
+  "/quienes_somos/page": "app/quienes_somos/page.js",
+  "/noticias/page": "app/noticias/page.js",
+  "/notieventos/page": "app/notieventos/page.js"
 }
